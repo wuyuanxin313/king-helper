@@ -5,7 +5,7 @@
 ## 🚀 快速下载使用
 
 如果您只想直接运行程序，而不需要修改代码，可以：
-1. 前往本仓库的 [Releases](https://github.com/wuyuanxin313/king-helper-official/releases) 页面。
+1. 前往本仓库的 [Releases](https://github.com/wuyuanxin313/king-helper/releases) 页面。
 2. 下载最新的 `.exe` 安装包。
 3. 双击安装即可使用。
 
