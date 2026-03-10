@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-window {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.pin-desktop-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #f4a460 0%, #daa520 50%, #cd853f 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
+}
+
+.pin-desktop-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4);
+}
+
+.pin-desktop-btn:active {
+  transform: translateY(0);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 200px;
+  background: white;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-btn:hover {
+  background: #f8f8f8;
+  color: #333;
+}
+
+.sidebar-btn.active {
+  background: #fff8e7;
+  color: #daa520;
+  border-left-color: #daa520;
+  font-weight: 500;
+}
+
+.content-area {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background: #fafafa;
+}
+
+.tab-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tab-content h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.tab-content p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.preview-tab-content {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* 滚动条样式 */
+.content-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content-area::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.content-area::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.content-area::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* 欢迎界面样式 */
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+  text-align: center;
+}
+
+.welcome-image {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 30px;
+}
+
+.welcome-emoji {
+  font-size: 120px;
+  margin-bottom: 30px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.welcome-greeting {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.welcome-subtitle {
+  font-size: 16px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.app-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 13px;
+  z-index: 9999;
+}
+
+.edit-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.edit-modal {
+  width: 520px;
+  max-width: 90vw;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.edit-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.edit-modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.edit-close-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.edit-close-btn:hover {
+  background: rgba(0,0,0,0.06);
+  color: #333;
+}
+
+.edit-modal-body {
+  padding: 16px;
+}
+
+.edit-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px 16px;
+}

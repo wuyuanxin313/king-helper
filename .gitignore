@@ -1,0 +1,13 @@
+node_modules
+dist
+dist_setup_final
+release
+release_new
+.DS_Store
+*.log
+.vscode
+.idea
+*.exe
+*.blockmap
+win-unpacked
+

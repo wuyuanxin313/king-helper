@@ -1,0 +1,121 @@
+.window-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: transparent;
+  /* -webkit-app-region: no-drag;  Removed to allow dragging */
+  /* backdrop-filter: blur(10px); */
+}
+
+.window-controls-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.window-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.control-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: #666;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  -webkit-app-region: no-drag; /* Ensure buttons are clickable */
+}
+
+.control-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+  transform: scale(1.05);
+}
+
+.control-btn.active {
+  color: #daa520;
+  background: rgba(218, 165, 32, 0.1);
+}
+
+.close-btn:hover {
+  background: #ff4d4f;
+  color: white;
+}
+
+.pin-btn {
+  font-size: 14px;
+}
+
+.minimize-btn {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.close-btn {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.close-btn:hover {
+  background: rgba(255, 0, 0, 0.6);
+}
+
+.opacity-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.opacity-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+.opacity-slider {
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.opacity-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.opacity-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.opacity-value {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 32px;
+  text-align: right;
+}
+
