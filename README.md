@@ -2,6 +2,10 @@
 
 一个基于 Electron + React + Vite 的个人任务管理工具，支持提醒、悬浮清单、AI 语义拆解、以及可爱的“小金”IP 状态交互。
 
+## 下载
+
+- Windows 安装包：请到 GitHub 仓库的 Releases 页面下载最新版本（`.exe`）。
+
 ## 功能
 
 - 任务管理：新增/编辑/完成/删除
@@ -52,6 +56,15 @@ npm run build
 安装包路径：
 
 - `dist-release2/小金助手 Setup 1.0.0.exe`
+
+## 发布安装包（GitHub Releases）
+
+本仓库已配置 GitHub Actions：推送 tag（例如 `v1.0.0`）后会自动构建 Windows 安装包并上传到 Releases。
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
 
 ## AI 配置（API Key）
 
