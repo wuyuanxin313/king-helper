@@ -1,0 +1,61 @@
+{
+  "name": "king-helper",
+  "productName": "小金助手",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "小金助手 - 个人任务管理工具",
+  "main": "dist-electron/main.js",
+  "build": {
+    "appId": "com.king.helper",
+    "productName": "小金助手",
+    "directories": {
+      "output": "dist-release2",
+      "buildResources": "build"
+    },
+    "asar": true,
+    "files": [
+      "dist-renderer/**",
+      "dist-electron/**",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "小金助手"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/generate-ico.mjs && tsc && vite build && electron-builder",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.446.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.2",
+    "date-fns": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "electron": "^32.1.2",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  }
+}
