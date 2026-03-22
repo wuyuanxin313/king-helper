@@ -5,3 +5,22 @@ build
 *.log
 .env
 .DS_Store
+
+# 文档文件
+*.docx
+*.doc
+*.pdf
+*.pptx
+*.ppt
+
+# 压缩包和安装包
+*.exe
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# 操作系统文件
+Thumbs.db
+desktop.ini
