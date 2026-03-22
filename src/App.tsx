@@ -77,13 +77,12 @@ function App() {
   const [notifications, setNotifications] = useState<{ id: string, title: string, type: 'light' | 'medium' | 'strong', taskId?: string }[]>([])
   const [ipAssistantText, setIpAssistantText] = useState("今天又是充满活力的一天！")
   const [ipBubbleVisible, setIpBubbleVisible] = useState(false)
-  const baseUrl = import.meta.env.BASE_URL
   const ipImages = {
-    default: `${baseUrl}ip-pictures/default.png`,
-    reminder: `${baseUrl}ip-pictures/reminder.png`,
-    urgent: `${baseUrl}ip-pictures/urgent.png`,
-    completed: `${baseUrl}ip-pictures/completed.png`,
-    idle: `${baseUrl}ip-pictures/idle.png`
+    default: '/ip-pictures/default.png',
+    reminder: '/ip-pictures/reminder.png',
+    urgent: '/ip-pictures/urgent.png',
+    completed: '/ip-pictures/completed.png',
+    idle: '/ip-pictures/idle.png'
   } as const
   const [ipStateOverride, setIpStateOverride] = useState<{ state: IPState, untilMs: number } | null>(null)
   const ipOverrideTimerRef = useRef<any>(null)
@@ -364,7 +363,7 @@ function App() {
       if (Notification.permission === 'granted') {
         new Notification('小金助手提醒', {
           body: `${task.title}\n${message}`,
-          icon: `${import.meta.env.BASE_URL}favicon.ico`,
+          icon: '/favicon.ico', // 或者你的应用图标
           silent: false
         })
       } else if (Notification.permission !== 'denied') {
@@ -1471,7 +1470,7 @@ function App() {
               setIpOverride('reminder', 2000)
             }}
             className={cn(
-              "w-32 h-32 rounded-full shadow-2xl flex items-center justify-center cursor-pointer transition-all duration-500 border-4 border-white group-active:scale-95 overflow-hidden bg-white relative",
+              "w-24 h-24 rounded-full shadow-2xl flex items-center justify-center cursor-pointer transition-all duration-500 border-4 border-white group-active:scale-95 overflow-hidden bg-white relative",
               ipState === 'urgent' ? "scale-110 ring-4 ring-red-400 animate-pulse" :
               ipState === 'reminder' ? "scale-110 ring-4 ring-yellow-300" :
               ipState === 'completed' ? "scale-110 ring-4 ring-green-400 animate-bounce" :

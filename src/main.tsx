@@ -10,10 +10,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 )
 
 // Use contextBridge
-if (window.ipcRenderer?.on) {
-  window.ipcRenderer.on('main-process-message', (_event, message) => {
-    console.log(message)
-  })
-} else {
-  console.warn('[ipcRenderer] not available: preload may have failed to load')
-}
+window.ipcRenderer.on('main-process-message', (_event, message) => {
+  console.log(message)
+})

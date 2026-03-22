@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, screen, globalShortcut } from 'electron'
+import { app, BrowserWindow, ipcMain, screen } from 'electron'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -13,7 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // │ │ ├── main.js
 // │ │ └── preload.js
 // │
-const distPath = path.join(__dirname, '../dist-renderer')
+const distPath = path.join(__dirname, '../dist')
 process.env.DIST = distPath
 const vitePublicPath = app.isPackaged ? distPath : path.join(distPath, '../public')
 process.env.VITE_PUBLIC = vitePublicPath
@@ -25,45 +25,19 @@ let pinnedWin: BrowserWindow | null
 // 🛠️ Main Window
 function createWindow() {
   win = new BrowserWindow({
-    autoHideMenuBar: true,
-    show: false,
-    width: 1200,
-    height: 800,
+    icon: path.join(vitePublicPath, 'electron-vite.svg'),
+    width: 1000,
+    height: 700,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      spellcheck: false,
-      backgroundThrottling: true,
     },
     title: '小金助手 (King-helper)',
-  })
-
-  win.once('ready-to-show', () => {
-    win?.maximize()
-    win?.show()
   })
 
   // Test active push message to Renderer-process.
   win.webContents.on('did-finish-load', () => {
     win?.webContents.send('main-process-message', (new Date).toLocaleString())
   })
-
-  win.webContents.on('did-fail-load', (_event, errorCode, errorDescription, validatedURL, isMainFrame) => {
-    if (!isMainFrame) return
-    console.error('[did-fail-load]', { errorCode, errorDescription, validatedURL })
-  })
-
-  win.webContents.on('console-message', (_event, level, message, line, sourceId) => {
-    const levelText = level === 0 ? 'debug' : level === 1 ? 'info' : level === 2 ? 'warn' : 'error'
-    console.log(`[renderer:${levelText}] ${message} (${sourceId}:${line})`)
-  })
-
-  win.webContents.on('render-process-gone', (_event, details) => {
-    console.error('[render-process-gone]', details)
-  })
-
-  if (app.isPackaged && process.env.ELECTRON_OPEN_DEVTOOLS === '1') {
-    win.webContents.openDevTools({ mode: 'detach' })
-  }
 
   if (process.env.VITE_DEV_SERVER_URL) {
     win.loadURL(process.env.VITE_DEV_SERVER_URL)
@@ -128,11 +102,6 @@ app.whenReady().then(() => {
     app.setAppUserModelId('com.king.helper')
   }
   createWindow()
-  globalShortcut.register('CommandOrControl+Shift+I', () => {
-    if (win && !win.isDestroyed()) {
-      win.webContents.toggleDevTools()
-    }
-  })
   
   // IPC listeners
   ipcMain.on('toggle-pinned-window', () => {

@@ -7,13 +7,7 @@ import react from '@vitejs/plugin-react'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => ({
-  // 打包为 Electron 时使用 file:// 加载页面，资源路径必须相对，否则会导致白屏
-  base: command === 'build' ? './' : '/',
-  build: {
-    outDir: 'dist-renderer',
-    emptyOutDir: true,
-  },
+export default defineConfig({
   plugins: [
     react(),
     electron({
@@ -35,4 +29,4 @@ export default defineConfig(({ command }) => ({
       '@': path.join(__dirname, 'src'),
     },
   },
-}))
+})
