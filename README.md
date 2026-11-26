@@ -15,7 +15,7 @@
   </p>
 </div>
 
-[下载安装包](https://github.com/wuyuanxin313/king-helper/releases) · [功能](#功能) · [快速开始](#快速开始) · [反馈问题](https://github.com/wuyuanxin313/king-helper/issues)
+[下载安装包](https://github.com/wuyuanxin313/king-helper/releases) · [演示视频](https://www.bilibili.com/video/BV1hP17zYEGb/) · [功能](#功能) · [快速开始](#快速开始) · [反馈问题](https://github.com/wuyuanxin313/king-helper/issues)
 
 ![今日待办](docs/screenshots/01-today.png)
 
@@ -128,7 +128,7 @@ AI 会拆成三条任务，并把类型、日期、时间、优先级一次填�
 2. 双击安装，首次启动会创建桌面快捷方式
 3. 打开即用，无需账号
 
-> 目前只提供 Windows 安装包。
+> 目前只提供 Windows 安装包。不想安装的话，先看 [1 分钟演示视频](https://www.bilibili.com/video/BV1hP17zYEGb/)。
 
 ### 从源码运行
 
